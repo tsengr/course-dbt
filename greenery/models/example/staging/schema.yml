@@ -1,0 +1,68 @@
+version: 2
+
+models:
+  - name: stg_superheroes
+    description: Demographics about each superhero such as name, hair color, height and weight. 
+    columns:
+        - name: name
+          tests:
+            - not_null
+        - name: height
+          tests:
+          - positive_values
+        - name: weight
+          tests:
+            - positive_values
+
+  - name: stg_addresses
+    description: Address information including name, zipcode, state, and country
+    columns:
+        - name: zipcode
+          tests:
+          - not_null
+        - name: state
+          tests:
+            - not_null
+        - name: country
+          tests:
+            - not_null
+  
+  - name: stg_events
+    description: Event information detailing user, session start time, session length, event type, and product
+    columns:
+        - name: created_at
+          tests: 
+          - not_null
+  
+  - name: stg_order_items
+    description: Event information detailing order and product quantities
+    columns:
+        - name: quantity
+          tests: 
+          - not_null
+  
+  - name: stg_orders
+    description: Event information detailing order information 
+    columns:
+        - name: created_at
+          tests: 
+          - not_null
+
+  - name: stg_products
+    description: Event information detailing product name, price, and inventory amount
+  
+  - name: stg_promos
+    description: Event information detailing promo status and discount amount
+    columns:
+        - name: discount
+          tests: 
+          - not_null
+
+  - name: stg_users
+    description: Event information detailing user contact information 
+    columns:
+        - name: created_at
+          tests: 
+          - not_null
+  
+  

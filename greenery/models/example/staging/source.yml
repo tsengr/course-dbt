@@ -1,0 +1,43 @@
+version: 2
+
+sources:
+
+  - name: tutorial # name of the source 
+    schema: public # this is the schema our raw data lives in
+    database: dbt # this is the name of our database
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    tables:
+      - name: superheroes 
+        loaded_at_field: created_at
+        description: >
+          Contains demographic information about each superhero
+      - name: addresses
+        description: > 
+          Contains information about each address
+      - name: events
+        description: >
+          Contains information about each event 
+      - name: order_items
+        description: >
+          Contains information about each order and its product quantities 
+      - name: orders
+        description: >
+          Contains information about each order
+      - name: products
+        description: >
+          Contains information about each product
+      - name: promos
+        description: >
+          Contains information about each promo
+      - name: users
+        description: >
+          Contains information about each users
